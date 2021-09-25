@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/WFListFragment"
-        android:name="com.gmail.shima.zeinalii.dev.weatherforecast.features.wfList.WFListFragment"
+        android:name="com.gmail.shima.zeinalii.dev.weatherforecast.features.wfList.ui.WFListFragment"
         android:label="WFListFragment" />
 </navigation>
