@@ -1,0 +1,7 @@
+<resources>
+
+    <style name="Theme.WeatherForecast" parent="Base.Theme.WeatherForecast">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+</resources>

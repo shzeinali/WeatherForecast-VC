@@ -1,0 +1,23 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Base.Theme.WeatherForecast" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/gray_5</item>
+        <item name="colorOnPrimary">@color/orange</item>
+        <item name="colorPrimaryDark">@color/blue</item>
+        <item name="colorOnSurface">@color/white</item>
+        <item name="colorAccent">@color/blue</item>
+        <item name="colorSurface">@color/gray_4</item>
+        <item name="colorSecondary">@color/orange</item>
+        <item name="android:colorBackground">@color/gray_5</item>
+    </style>
+
+    <style name="Theme.WeatherForecast" parent="Base.Theme.WeatherForecast" />
+
+    <style name="Theme.WeatherForecast.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.WeatherForecast.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
+
+</resources>
