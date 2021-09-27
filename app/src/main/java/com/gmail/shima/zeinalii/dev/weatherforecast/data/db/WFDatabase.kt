@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.gmail.shima.zeinalii.dev.weatherforecast.data.models.Forecast
 import com.gmail.shima.zeinalii.dev.weatherforecast.utilities.DATABASE_NAME
@@ -15,6 +16,7 @@ import com.gmail.shima.zeinalii.dev.weatherforecast.utilities.DATABASE_NAME
  */
 
 @Database(entities = [Forecast::class], version = 1, exportSchema = false)
+@TypeConverters(Converters::class)
 abstract class WFDatabase : RoomDatabase() {
 
     abstract fun forecastDao(): ForecastDao

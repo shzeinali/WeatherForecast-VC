@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="oddListItemColor" format="color" />
+    <attr name="evenListItemColor" format="color" />
+    <attr name="todayListItemColor" format="color" />
+</resources>

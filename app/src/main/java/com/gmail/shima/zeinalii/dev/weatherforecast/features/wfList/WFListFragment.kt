@@ -9,7 +9,11 @@ import com.gmail.shima.zeinalii.dev.weatherforecast.databinding.FragmentWfListBi
 import com.gmail.shima.zeinalii.dev.weatherforecast.features.common.BaseFragment
 import com.gmail.shima.zeinalii.dev.weatherforecast.viewmodels.WFListViewModel
 import com.gmail.shima.zeinalii.dev.weatherforecast.data.models.Result
+import com.gmail.shima.zeinalii.dev.weatherforecast.features.common.hide
+import com.gmail.shima.zeinalii.dev.weatherforecast.features.common.show
+import com.gmail.shima.zeinalii.dev.weatherforecast.features.wfList.WFListAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 /**
  * Created by Shima Zeinali
@@ -19,6 +23,9 @@ import dagger.hilt.android.AndroidEntryPoint
 class WFListFragment : BaseFragment() {
     private lateinit var binding: FragmentWfListBinding
     private val viewModel: WFListViewModel by viewModels()
+
+    @Inject
+    lateinit var adapter: WFListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,6 +38,7 @@ class WFListFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initAdapter()
         subscribeUi()
     }
 
@@ -38,13 +46,30 @@ class WFListFragment : BaseFragment() {
         viewModel.forecasts.observe(viewLifecycleOwner, { result ->
             when (result.status) {
                 Result.Status.SUCCESS -> {
-                    result.data?.let {}
+                    result.data?.let {
+                        binding.progressBar.hide()
+                        adapter.submitList(it)
+                        handleEmptyListView(it.isEmpty())
+                    }
                 }
                 Result.Status.LOADING -> {
+                    binding.progressBar.show()
                 }
                 Result.Status.ERROR -> {
+                    binding.progressBar.hide()
                 }
             }
         })
+    }
+
+    private fun initAdapter() {
+        binding.recyclerView.adapter = adapter
+    }
+
+    private fun handleEmptyListView(isEmpty: Boolean) {
+        when (isEmpty) {
+            true -> binding.groupEmptyListError.visibility = View.VISIBLE
+            false -> binding.groupEmptyListError.visibility = View.GONE
+        }
     }
 }
