@@ -6,10 +6,22 @@
     <color name="gray_3">#fafafa</color>
     <color name="gray_4">#4A4A4A</color>
     <color name="gray_5">#2E2E2E</color>
-    <color name="white">#deffffff</color>
-    <color name="orange">#fda237</color>
-    <color name="orange1">#c38d5f</color>
-    <color name="blue">#5e99a8</color>
-    <color name="red">#7e0001</color>
-    <color name="red1">#5a130f</color>
+    <color name="t_white">#deffffff</color>
+
+
+    <color name="hit_pink">#ffb482</color>
+    <color name="antique_brass">#c98455</color>
+    <color name="peach">#ffe6b2</color>
+    <color name="apricot_peach">#FBD7BD</color>
+    <color name="cinderella">#FDE2CF</color>
+    <color name="fuscous_gray">#565551</color>
+
+
+    <color name="rhino">#293251</color>
+    <color name="midnight">#000a28</color>
+    <color name="comet">#545b7d</color>
+    <color name="pickled_bluewood">#384266</color>
+    <color name="rhino_1">#323D65</color>
+    <color name="tutu">#fffeff</color>
+
 </resources>

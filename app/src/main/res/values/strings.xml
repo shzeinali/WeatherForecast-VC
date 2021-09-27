@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">WeatherForecast</string>
+    <string name="Weather_forecast">Weather Forecast</string>
+
+    <string name="retry">Retry</string>
+    <string name="no_results">No Result</string>
+    <string name="currently">Currently</string>
+    <string name="today_paris">Today, Paris!</string>
 </resources>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="forecast"
+            type="com.gmail.shima.zeinalii.dev.weatherforecast.data.models.Forecast" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/evenListItemColor"
+        android:padding="@dimen/margin_normal">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            app:imageFromUrl="@{forecast.firstItemOfWeather().iconUrl2x}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/ic_dialog_dialer" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            style="@style/TextAppearance.WeatherForecast.ListItem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:text="@{forecast.dateString()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_temp"
+            app:layout_constraintStart_toEndOf="@+id/iv_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Tue Sep 26" />
+
+        <TextView
+            android:id="@+id/tv_temp"
+            style="@style/TextAppearance.WeatherForecast.ListItem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{forecast.temp.minMaxTempStr()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="28 / 12" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
