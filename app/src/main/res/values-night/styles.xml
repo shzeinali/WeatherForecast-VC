@@ -12,6 +12,8 @@
         <item name="oddListItemColor">@color/rhino_1</item>
         <item name="evenListItemColor">@color/pickled_bluewood</item>
         <item name="todayListItemColor">@color/rhino</item>
+        <item name="gradientColor">@color/rhino</item>
+        <item name="textColor">@color/tutu</item>
     </style>
 
     <style name="Theme.WeatherForecast" parent="Base.Theme.WeatherForecast" />

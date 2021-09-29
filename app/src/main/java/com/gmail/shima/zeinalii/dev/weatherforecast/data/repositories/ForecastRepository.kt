@@ -23,4 +23,6 @@ class ForecastRepository @Inject constructor(
         networkCall = { remoteSource.fetchForecasts() },
         deleteOldData = { dao.deleteForecasts() },
         saveCallResult = { dao.insertForecasts(it.forecasts) })
+
+    fun forecast(forecastId: Int) = dao.getForecast(forecastId)
 }

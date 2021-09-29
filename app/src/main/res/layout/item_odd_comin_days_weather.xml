@@ -6,6 +6,10 @@
     <data>
 
         <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
             name="forecast"
             type="com.gmail.shima.zeinalii.dev.weatherforecast.data.models.Forecast" />
     </data>
@@ -14,6 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/oddListItemColor"
+        android:onClick="@{clickListener}"
         android:padding="@dimen/margin_normal">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -33,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_small"
             android:layout_marginEnd="@dimen/margin_small"
-            android:text="@{forecast.dateString()}"
+            android:text="@{forecast.dateStr()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/tv_temp"
             app:layout_constraintStart_toEndOf="@+id/iv_icon"

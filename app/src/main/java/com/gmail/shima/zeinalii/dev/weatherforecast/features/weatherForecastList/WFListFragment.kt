@@ -1,4 +1,4 @@
-package com.gmail.shima.zeinalii.dev.weatherforecast.features.wfList.ui
+package com.gmail.shima.zeinalii.dev.weatherforecast.features.weatherForecastList
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,7 +11,6 @@ import com.gmail.shima.zeinalii.dev.weatherforecast.viewmodels.WFListViewModel
 import com.gmail.shima.zeinalii.dev.weatherforecast.data.models.Result
 import com.gmail.shima.zeinalii.dev.weatherforecast.features.common.hide
 import com.gmail.shima.zeinalii.dev.weatherforecast.features.common.show
-import com.gmail.shima.zeinalii.dev.weatherforecast.features.wfList.WFListAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

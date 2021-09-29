@@ -1,17 +1,19 @@
-package com.gmail.shima.zeinalii.dev.weatherforecast.features.wfList
+package com.gmail.shima.zeinalii.dev.weatherforecast.features.weatherForecastList
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.gmail.shima.zeinalii.dev.weatherforecast.data.models.Forecast
 import com.gmail.shima.zeinalii.dev.weatherforecast.databinding.ItemEvenCominDaysWeatherBinding
 import com.gmail.shima.zeinalii.dev.weatherforecast.databinding.ItemOddCominDaysWeatherBinding
 import com.gmail.shima.zeinalii.dev.weatherforecast.databinding.ItemTodayWeatherBinding
-import com.gmail.shima.zeinalii.dev.weatherforecast.features.wfList.viewHolders.BaseViewHolder
-import com.gmail.shima.zeinalii.dev.weatherforecast.features.wfList.viewHolders.EvenComingDaysWeatherViewHolder
-import com.gmail.shima.zeinalii.dev.weatherforecast.features.wfList.viewHolders.OddComingDaysWeatherViewHolder
-import com.gmail.shima.zeinalii.dev.weatherforecast.features.wfList.viewHolders.TodayWeatherViewHolder
+import com.gmail.shima.zeinalii.dev.weatherforecast.features.weatherForecastList.viewHolders.BaseViewHolder
+import com.gmail.shima.zeinalii.dev.weatherforecast.features.weatherForecastList.viewHolders.EvenComingDaysWeatherViewHolder
+import com.gmail.shima.zeinalii.dev.weatherforecast.features.weatherForecastList.viewHolders.OddComingDaysWeatherViewHolder
+import com.gmail.shima.zeinalii.dev.weatherforecast.features.weatherForecastList.viewHolders.TodayWeatherViewHolder
 import javax.inject.Inject
 
 
@@ -56,7 +58,17 @@ class WFListAdapter @Inject constructor() :
     }
 
     override fun onBindViewHolder(holder: BaseViewHolder<Forecast>, position: Int) {
-        holder.bind(getItem(position))
+        val forecast = getItem(position)
+        holder.bind(forecast, navigateToWeatherDetail(forecast))
+    }
+
+    private fun navigateToWeatherDetail(forecast: Forecast): View.OnClickListener {
+        return View.OnClickListener {
+            val direction = WFListFragmentDirections.actionWFListFragmentToWDetailFragment(
+                forecast.id
+            )
+            it.findNavController().navigate(direction)
+        }
     }
 
     override fun getItemViewType(position: Int): Int {
