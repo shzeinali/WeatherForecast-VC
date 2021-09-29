@@ -66,9 +66,9 @@ data class Temperature(
     fun weatherStatus(): String {
         val t = currentTemp().roundToInt()
         return when {
-            t > 25 -> "Is a hot day!"
-            t < 10 -> "Is a cold day!"
-            else -> "Is a grate day!"
+            t > 25 -> "A hot day!"
+            t < 10 -> "A cold day!"
+            else -> "A grate day!"
         }
     }
 }
