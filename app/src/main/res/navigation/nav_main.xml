@@ -10,10 +10,18 @@
         android:label="WFListFragment">
         <action
             android:id="@+id/action_WFListFragment_to_WDetailFragment"
-            app:destination="@id/WDetailFragment" />
+            app:destination="@id/WDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/WDetailFragment"
         android:name="com.gmail.shima.zeinalii.dev.weatherforecast.features.weatherDetail.WDetailFragment"
-        android:label="WDetailFragment" />
+        android:label="WDetailFragment">
+        <argument
+            android:name="forecastId"
+            app:argType="integer" />
+    </fragment>
 </navigation>

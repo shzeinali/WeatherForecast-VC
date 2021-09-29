@@ -5,17 +5,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.NestedScrollView
+import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import com.gmail.shima.zeinalii.dev.weatherforecast.databinding.FragmentWDetailBinding
 import com.gmail.shima.zeinalii.dev.weatherforecast.features.common.BaseFragment
+import com.gmail.shima.zeinalii.dev.weatherforecast.viewmodels.WDetailViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
 
 /**
  * Created by Shima Zeinali
  * shima.zeinalii@gmail.com
  */
+@AndroidEntryPoint
 class WDetailFragment : BaseFragment() {
     private lateinit var binding: FragmentWDetailBinding
+    private val viewModel: WDetailViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,6 +34,12 @@ class WDetailFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView(view)
+
+        viewModel.forecast.observe(viewLifecycleOwner, {
+            binding.apply {
+                forecast = it
+            }
+        })
     }
 
 

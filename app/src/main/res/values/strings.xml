@@ -14,7 +14,7 @@
     <string name="temp_max">Max</string>
     <string name="temp_min">Min</string>
     <string name="feels_like">Feels like</string>
-    <string name="wind">Wind</string>
+    <string name="windSpeed">Wind</string>
     <string name="sunrise">Sunrise</string>
     <string name="sunset">Sunset</string>
     <string name="detail">Details</string>

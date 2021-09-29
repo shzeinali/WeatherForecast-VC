@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.gmail.shima.zeinalii.dev.weatherforecast.data.models.Forecast
+import kotlinx.coroutines.flow.Flow
 
 
 /**
@@ -17,6 +18,9 @@ interface ForecastDao {
 
     @Query("SELECT * FROM forecasts")
     fun getForecasts(): LiveData<List<Forecast>>
+
+    @Query("SELECT * FROM forecasts WHERE id = :forecastId")
+    fun getForecast(forecastId: Int): Flow<Forecast>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertForecasts(forecasts: List<Forecast>)

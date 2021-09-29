@@ -2,6 +2,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="forecast"
+            type="com.gmail.shima.zeinalii.dev.weatherforecast.data.models.Forecast" />
+    </data>
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -29,6 +36,7 @@
                 app:contentScrim="?attr/colorSurface"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
                 app:statusBarScrim="?attr/colorSurface"
+                app:title="@{forecast.dateStr()"
                 app:titleEnabled="false"
                 app:toolbarId="@id/toolbar">
 
@@ -39,6 +47,7 @@
                     android:contentDescription="@string/detail_header"
                     android:fitsSystemWindows="true"
                     android:scaleType="centerCrop"
+                    app:headerImage="@{forecast.temp.tempInt()}"
                     app:layout_collapseMode="parallax"
                     app:srcCompat="@drawable/cold" />
 
@@ -61,6 +70,7 @@
                         android:layout_marginStart="@dimen/margin_small"
                         android:layout_marginEnd="@dimen/margin_small"
                         android:gravity="center"
+                        android:text="@{forecast.temp.currentTempStr()}"
                         android:textSize="45sp"
                         tools:text="24" />
 
@@ -72,6 +82,7 @@
                         android:layout_marginStart="@dimen/margin_small"
                         android:layout_marginEnd="@dimen/margin_small"
                         android:gravity="center"
+                        android:text="@{forecast.temp.weatherStatus()}"
                         tools:text="is Cold!" />
                 </LinearLayout>
 
@@ -128,9 +139,11 @@
                     style="@style/TextAppearance.WeatherForecast.Title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
                     android:layout_marginEnd="@dimen/margin_normal"
                     android:drawablePadding="@dimen/margin_small"
                     android:gravity="center"
+                    android:text="@{forecast.sunriseStr()}"
                     app:drawableStartCompat="@drawable/ic_sunrise"
                     app:layout_constraintEnd_toStartOf="@id/guideline"
                     app:layout_constraintTop_toBottomOf="@+id/lb_sunrise"
@@ -152,8 +165,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_normal"
+                    android:layout_marginTop="@dimen/margin_small"
                     android:drawablePadding="@dimen/margin_small"
                     android:gravity="start"
+                    android:text="@{forecast.sunsetStr()}"
                     app:drawableStartCompat="@drawable/ic_sunset"
                     app:layout_constraintStart_toStartOf="@id/guideline"
                     app:layout_constraintTop_toBottomOf="@id/lb_sunset"
@@ -193,7 +208,10 @@
                     app:layout_constraintHorizontal_chainStyle="spread"
                     app:layout_constraintHorizontal_weight="1"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_label" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_label"
+                    app:weatherConditionIcon="@{@drawable/ic_feels_like}"
+                    app:weatherConditionLabel="@{@string/feels_like}"
+                    app:weatherConditionValue="@{forecast.feelsLike.temp()}" />
 
                 <include
                     android:id="@+id/v2"
@@ -204,7 +222,10 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintHorizontal_weight="1"
                     app:layout_constraintStart_toEndOf="@+id/v1"
-                    app:layout_constraintTop_toTopOf="@+id/v1" />
+                    app:layout_constraintTop_toTopOf="@+id/v1"
+                    app:weatherConditionIcon="@{@drawable/ic_wind}"
+                    app:weatherConditionLabel="@{@string/windSpeed}"
+                    app:weatherConditionValue="@{forecast.windSpeedStr()}" />
 
                 <include
                     android:id="@+id/v3"
@@ -217,7 +238,10 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintHorizontal_weight="1"
                     app:layout_constraintStart_toEndOf="@+id/v2"
-                    app:layout_constraintTop_toTopOf="@+id/v2" />
+                    app:layout_constraintTop_toTopOf="@+id/v2"
+                    app:weatherConditionIcon="@{@drawable/ic_humidity}"
+                    app:weatherConditionLabel="@{@string/humidity}"
+                    app:weatherConditionValue="@{forecast.humidityStr()}" />
 
                 <include
                     android:id="@+id/v4"
@@ -232,7 +256,10 @@
                     app:layout_constraintHorizontal_chainStyle="spread"
                     app:layout_constraintHorizontal_weight="1"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/v1" />
+                    app:layout_constraintTop_toBottomOf="@+id/v1"
+                    app:weatherConditionIcon="@{@drawable/ic_pressure}"
+                    app:weatherConditionLabel="@{@string/pressure}"
+                    app:weatherConditionValue="@{forecast.pressureStr()}" />
 
                 <include
                     android:id="@+id/v5"
@@ -243,7 +270,10 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintHorizontal_weight="1"
                     app:layout_constraintStart_toEndOf="@+id/v4"
-                    app:layout_constraintTop_toTopOf="@+id/v4" />
+                    app:layout_constraintTop_toTopOf="@+id/v4"
+                    app:weatherConditionIcon="@{@drawable/ic_temp_min}"
+                    app:weatherConditionLabel="@{@string/temp_min}"
+                    app:weatherConditionValue="@{forecast.temp.minStr()}" />
 
                 <include
                     android:id="@+id/v6"
@@ -256,7 +286,10 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintHorizontal_weight="1"
                     app:layout_constraintStart_toEndOf="@+id/v5"
-                    app:layout_constraintTop_toTopOf="@+id/v5" />
+                    app:layout_constraintTop_toTopOf="@+id/v5"
+                    app:weatherConditionIcon="@{@drawable/ic_temp_max}"
+                    app:weatherConditionLabel="@{@string/temp_max}"
+                    app:weatherConditionValue="@{forecast.temp.maxStr()}" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
 

@@ -30,8 +30,35 @@ data class Forecast(
     @field:SerializedName("temp")
     val temp: Temperature,
 
+    @field:SerializedName("feels_like")
+    val feelsLike: FeelsLike,
+
+    @field:SerializedName("pressure")
+    val pressure: Int,
+
+    @field:SerializedName("humidity")
+    val humidity: Int,
+
     @field:SerializedName("weather")
-    val weather: List<Weather>
+    val weather: List<Weather>,
+
+    @field:SerializedName("speed")
+    val windSpeed: Float,
+
+    @field:SerializedName("deg")
+    val WindDirection: Int,
+
+    @field:SerializedName("gust")
+    val windGust: Float,
+
+    @field:SerializedName("clouds")
+    val cloudiness: Int,
+
+    @field:SerializedName("pop")
+    val probability: Float,
+
+    @field:SerializedName("rain")
+    val precipitationVolume: Float
 
 ) {
 
@@ -41,8 +68,30 @@ data class Forecast(
         return weather[0]
     }
 
-    fun dateString(): String {
+    fun dateStr(): String {
         val dateFormat = SimpleDateFormat("EEE MMM dd", Locale.ENGLISH)
         return dateFormat.format(date * 1000L)
+    }
+
+    fun sunriseStr(): String {
+        val dateFormat = SimpleDateFormat("hh:mm a", Locale.ENGLISH)
+        return dateFormat.format(sunrise * 1000L)
+    }
+
+    fun sunsetStr(): String {
+        val dateFormat = SimpleDateFormat("hh:mm a", Locale.ENGLISH)
+        return dateFormat.format(sunset * 1000L)
+    }
+
+    fun humidityStr(): String {
+        return "$humidity%"
+    }
+
+    fun pressureStr(): String {
+        return "$pressure In"
+    }
+
+    fun windSpeedStr(): String {
+        return windSpeed.roundToInt().toString() + "km/h"
     }
 }

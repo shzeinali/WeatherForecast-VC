@@ -1,6 +1,7 @@
 package com.gmail.shima.zeinalii.dev.weatherforecast.data.db
 
 import androidx.room.TypeConverter
+import com.gmail.shima.zeinalii.dev.weatherforecast.data.models.FeelsLike
 import com.gmail.shima.zeinalii.dev.weatherforecast.data.models.Temperature
 import com.gmail.shima.zeinalii.dev.weatherforecast.data.models.Weather
 import com.google.gson.Gson
@@ -27,4 +28,10 @@ class Converters {
         val type = object : TypeToken<List<Weather>>() {}.type
         return Gson().fromJson(json, type)
     }
+
+    @TypeConverter
+    fun feelsLikeToJson(feelsLike: FeelsLike): String = Gson().toJson(feelsLike)
+
+    @TypeConverter
+    fun jsonToFeelsLike(json: String): FeelsLike = Gson().fromJson(json, FeelsLike::class.java)
 }

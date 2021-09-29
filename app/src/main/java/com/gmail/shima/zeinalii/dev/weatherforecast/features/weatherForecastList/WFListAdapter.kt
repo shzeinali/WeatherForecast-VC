@@ -58,12 +58,15 @@ class WFListAdapter @Inject constructor() :
     }
 
     override fun onBindViewHolder(holder: BaseViewHolder<Forecast>, position: Int) {
-        holder.bind(getItem(position), createOnClickListener())
+        val forecast = getItem(position)
+        holder.bind(forecast, navigateToWeatherDetail(forecast))
     }
 
-    private fun createOnClickListener(): View.OnClickListener {
+    private fun navigateToWeatherDetail(forecast: Forecast): View.OnClickListener {
         return View.OnClickListener {
-            val direction = WFListFragmentDirections.actionWFListFragmentToWDetailFragment()
+            val direction = WFListFragmentDirections.actionWFListFragmentToWDetailFragment(
+                forecast.id
+            )
             it.findNavController().navigate(direction)
         }
     }

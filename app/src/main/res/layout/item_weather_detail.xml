@@ -1,8 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="weatherConditionValue"
+            type="String" />
+
+        <variable
+            name="weatherConditionLabel"
+            type="String" />
+
+        <variable
+            name="weatherConditionIcon"
+            type="android.graphics.drawable.Drawable" />
+    </data>
+
     <LinearLayout
+        android:id="@+id/linear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?attr/evenListItemColor"
@@ -15,6 +32,7 @@
             android:layout_width="34dp"
             android:layout_height="34dp"
             android:layout_margin="@dimen/margin_small"
+            app:imageFromDrawable="@{weatherConditionIcon}"
             tools:srcCompat="@android:drawable/ic_dialog_dialer" />
 
         <TextView
@@ -25,6 +43,7 @@
             android:layout_marginStart="@dimen/margin_small"
             android:layout_marginEnd="@dimen/margin_small"
             android:gravity="center"
+            android:text="@{weatherConditionLabel}"
             tools:text="Feels like" />
 
         <TextView
@@ -35,6 +54,7 @@
             android:layout_marginStart="@dimen/margin_small"
             android:layout_marginEnd="@dimen/margin_small"
             android:gravity="center"
+            android:text="@{weatherConditionValue}"
             tools:text="26" />
     </LinearLayout>
 </layout>
