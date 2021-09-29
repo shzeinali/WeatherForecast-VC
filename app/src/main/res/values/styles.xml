@@ -12,6 +12,8 @@
         <item name="oddListItemColor">@color/cinderella</item>
         <item name="evenListItemColor">@color/apricot_peach</item>
         <item name="todayListItemColor">@color/hit_pink</item>
+        <item name="gradientColor">@color/hit_pink</item>
+        <item name="textColor">@color/fuscous_gray</item>
     </style>
 
     <style name="Theme.WeatherForecast" parent="Base.Theme.WeatherForecast" />

@@ -6,6 +6,10 @@
     <data>
 
         <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
             name="forecast"
             type="com.gmail.shima.zeinalii.dev.weatherforecast.data.models.Forecast" />
     </data>
@@ -15,6 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/todayListItemColor"
+        android:onClick="@{clickListener}"
         android:paddingTop="@dimen/margin_normal"
         android:paddingBottom="@dimen/margin_normal">
 

@@ -3,4 +3,6 @@
     <attr name="oddListItemColor" format="color" />
     <attr name="evenListItemColor" format="color" />
     <attr name="todayListItemColor" format="color" />
+    <attr name="gradientColor" format="color" />
+    <attr name="textColor" format="color" />
 </resources>
