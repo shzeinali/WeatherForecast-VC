@@ -14,10 +14,10 @@ interface WFService {
 
     @GET("forecast/daily")
     suspend fun getForecasts(
-        @Query("q") cityName: String,
-        @Query("mode") mode: String,
-        @Query("units") units: String,
-        @Query("cnt") count: Int,
-        @Query("appid") appId: String
+        @Query("q") cityName: String? = null,
+        @Query("mode") mode: String? = null,
+        @Query("units") units: String? = null,
+        @Query("cnt") count: Int? = null,
+        @Query("appid") appId: String? = null
     ): Response<WFStatus>
 }

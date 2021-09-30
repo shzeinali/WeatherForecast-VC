@@ -29,8 +29,8 @@ import kotlinx.coroutines.withContext
 //            if (filename != null) {
 //                applicationContext.assets.open(filename).use { inputStream ->
 //                    JsonReader(inputStream.reader()).use { jsonReader ->
-//                        val productType = object : TypeToken<List<Forecast>>() {}.type
-//                        val forecastList: List<Forecast> = Gson().fromJson(jsonReader, productType)
+//                        val type = object : TypeToken<List<Forecast>>() {}.type
+//                        val forecastList: List<Forecast> = Gson().fromJson(jsonReader, type)
 //
 //                        val database = WFDatabase.getInstance(applicationContext)
 //                        database.forecastDao().insertForecasts(forecastList)
