@@ -45,20 +45,20 @@ data class Forecast(
     @field:SerializedName("speed")
     val windSpeed: Float,
 
-    @field:SerializedName("deg")
-    val WindDirection: Int,
-
-    @field:SerializedName("gust")
-    val windGust: Float,
-
-    @field:SerializedName("clouds")
-    val cloudiness: Int,
-
-    @field:SerializedName("pop")
-    val probability: Float,
-
-    @field:SerializedName("rain")
-    val precipitationVolume: Float
+//    @field:SerializedName("deg")
+//    val WindDirection: Int,
+//
+//    @field:SerializedName("gust")
+//    val windGust: Float,
+//
+//    @field:SerializedName("clouds")
+//    val cloudiness: Int,
+//
+//    @field:SerializedName("pop")
+//    val probability: Float,
+//
+//    @field:SerializedName("rain")
+//    val precipitationVolume: Float
 
 ) {
 

@@ -61,7 +61,7 @@ class WDetailFragment : BaseFragment() {
                     // Use shadow animator to add elevation if toolbar is shown
                     binding.appbar.isActivated = shouldShowToolbar
 
-                    // Show the product name if toolbar is shown
+                    // Show the temp if toolbar is shown
                     binding.toolbarLayout.isTitleEnabled = shouldShowToolbar
                 }
             }
